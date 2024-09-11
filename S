@@ -1,0 +1,7 @@
+local _env = getgenv and getgenv() or {}
+
+local Ver = "Version: 1.2.6"
+local Dis = "https://discord.gg/y9cBxHh3Ek"
+
+_env.Discord = Dis
+_env.Version = Ver
