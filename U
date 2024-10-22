@@ -110,7 +110,7 @@ do
 		GUI:Destroy()
 	end
 
-	local GUI1 = game:GetService("CoreGui"):FindFirstChild("Speed_Hub_X_ScreenGui")
+	local GUI1 = game:GetService("CoreGui"):FindFirstChild("ZTX_ScreenGui")
 	if GUI1 then 
 		GUI1:Destroy()
 	end
@@ -810,7 +810,7 @@ Library.Creator = Creator
 local New = Creator.New
 
 local GUI = New("ScreenGui", {
-	Name = "Speed_Hub_X_ScreenGui",
+	Name = "ZTX_ScreenGui",
 	Parent = RunService:IsStudio() and LocalPlayer.PlayerGui or (gethui() or cloneref(game:GetService("CoreGui")) or game:GetService("CoreGui")),
 })
 
@@ -5434,7 +5434,7 @@ local SaveManager = {} do
 end
 
 local InterfaceManager = {} do
-	InterfaceManager.Folder = "Speed_Hub_X_Config"
+	InterfaceManager.Folder = "ZTX_Config"
 	InterfaceManager.Settings = {
 		Acrylic = true,
 		Transparency = true,
