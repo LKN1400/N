@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Logger Éducatif</title>
+</head>
+<body>
+    <h1>Bienvenue</h1>
+    <p>Votre adresse IP sera affichée ici :</p>
+    <p id="ip"></p>
+
+    <script>
+        fetch('https://api64.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('ip').textContent = `Votre IP : ${data.ip}`;
+                console.log("Adresse IP capturée :", data.ip);
+            })
+            .catch(error => console.error('Erreur lors de la récupération de l’IP :', error));
+    </script>
+</body>
+</html>
