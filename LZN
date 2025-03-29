@@ -135,7 +135,7 @@ Bar.Size = UDim2.new(1, 0, 0, 15)
 
 Toggle.Name = "Toggle"
 Toggle.Parent = Bar
-Toggle.BackgroundColor3 = Color3.new(0.5, 0.8, 1) -- Bleu clair
+Toggle.BackgroundColor3 = Color3.new(25/255, 22/255, 40/255)
 Toggle.BackgroundTransparency = 1
 Toggle.Position = UDim2.new(0, 5, 0, -2)
 Toggle.Rotation = 0
@@ -147,6 +147,7 @@ end)()
 Toggle.Size = UDim2.new(0, 20, 0, 20)
 Toggle.ZIndex = 2
 Toggle.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&assetId=89566385300354"
+Toggle.ImageColor3 = Color3.new(0.5, 0.8, 1) -- Bleu clair pour le toggle
 
 Base.Name = "Base"
 Base.Parent = Bar
@@ -155,7 +156,7 @@ Base.BorderSizePixel = 0
 Base.Position = UDim2.new(0, 0, 0.800000012, 0)
 Base.Size = UDim2.new(1, 0, 0, 10)
 Base.Image = "rbxassetid://2851926732"
-Base.ImageColor3 = Color3.new(15/255,edit)()
+Base.ImageColor3 = Color3.new(15/255, 64/255, 64/255)
 Base.ScaleType = Enum.ScaleType.Slice
 Base.SliceCenter = Rect.new(12, 12, 12, 12)
 
@@ -240,7 +241,7 @@ TextBox.Font = Enum.Font.GothamSemibold
 TextBox.PlaceholderColor3 = Color3.new(0.5, 0.8, 1) -- Bleu clair
 TextBox.PlaceholderText = "Input Text"
 TextBox.Text = ""
-TextBox.TextColor3 = Color3.new(0.5, 0.8, 1) -- Bleu clair
+TextBox.TextColor3 = Color3.new(0.5, 0.8, 1) -- Bleu clair pour l'écriture
 TextBox.TextSize = 14
 
 TextBox_Roundify_4px.Name = "TextBox_Roundify_4px"
@@ -447,11 +448,12 @@ TextButton_Roundify_4px_3.SliceCenter = Rect.new(4, 4, 4, 4)
 
 Toggle_2.Name = "Toggle"
 Toggle_2.Parent = Button
-Toggle_2.BackgroundColor3 = Color3.new(0.5, 0.8, 1) -- Bleu clair
+Toggle_2.BackgroundColor3 = Color3.new(25/255, 22/255, 40/255)
 Toggle_2.BackgroundTransparency = 1
 Toggle_2.Position = UDim2.new(0, 5, 0, 0)
 Toggle_2.Size = UDim2.new(0, 20, 0, 20)
 Toggle_2.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&assetId=4731371541"
+Toggle_2.ImageColor3 = Color3.new(0.5, 0.8, 1) -- Bleu clair pour le toggle
 
 Objects_2.Name = "Objects"
 Objects_2.Parent = Folder
@@ -506,7 +508,7 @@ Source.Font = Enum.Font.Code
 Source.MultiLine = true
 Source.PlaceholderColor3 = Color3.new(0.5, 0.8, 1) -- Bleu clair
 Source.Text = ""
-Source.TextColor3 = Color3.new(0.5, 0.8, 1) -- Bleu clair
+Source.TextColor3 = Color3.new(0.5, 0.8, 1) -- Bleu clair pour l'écriture
 Source.TextSize = 15
 Source.TextStrokeColor3 = Color3.new(0.5, 0.8, 1) -- Bleu clair
 Source.TextWrapped = true
@@ -521,7 +523,7 @@ Comments.Size = UDim2.new(1, 0, 1, 0)
 Comments.ZIndex = 5
 Comments.Font = Enum.Font.Code
 Comments.Text = ""
-Comments.TextColor3 = Color3.new(0.4, 0.8, 0.4) -- Vert clair (inchangé pour contraste)
+Comments.TextColor3 = Color3.new(0.4, 0.8, 0.4) -- Vert clair (inchangé)
 Comments.TextSize = 15
 Comments.TextXAlignment = Enum.TextXAlignment.Left
 Comments.TextYAlignment = Enum.TextYAlignment.Top
@@ -534,7 +536,7 @@ Globals.Size = UDim2.new(1, 0, 1, 0)
 Globals.ZIndex = 5
 Globals.Font = Enum.Font.Code
 Globals.Text = ""
-Globals.TextColor3 = Color3.new(0.5, 0.85, 0.95) -- Bleu clair pâle (inchangé)
+Globals.TextColor3 = Color3.new(0.5, 0.85, 0.95) -- Bleu pâle (inchangé)
 Globals.TextSize = 15
 Globals.TextXAlignment = Enum.TextXAlignment.Left
 Globals.TextYAlignment = Enum.TextYAlignment.Top
@@ -613,6 +615,7 @@ Info.ZIndex = 5
 Info.Font = Enum.Font.Code
 Info.Text = ""
 Info.TextColor3 = Color3.new(0.2, 0.65, 1) -- Bleu moyen (inchangé)
+Info.TextSize = 15
 Info.TextXAlignment = Enum.TextXAlignment.Left
 Info.TextYAlignment = Enum.TextYAlignment.Top
 
@@ -687,7 +690,7 @@ Indicator_4.ZIndex = 2
 
 Switch.Name = "Switch"
 Switch.Parent = Prefabs
-Switch.BackgroundColor3 = Color3.new(0.5, 0.8, 1) -- Bleu clair
+Switch.BackgroundColor3 = Color3.new(25/255, 22/255, 40/255)
 Switch.BackgroundTransparency = 1
 Switch.BorderSizePixel = 0
 Switch.Position = UDim2.new(0.229411766, 0, 0.20714286, 0)
@@ -696,7 +699,6 @@ Switch.ZIndex = 2
 Switch.Font = Enum.Font.SourceSans
 Switch.Text = ""
 Switch.TextColor3 = Color3.new(0.5, 0.8, 1) -- Bleu clair
-Switch.TextSize = 18
 
 TextButton_Roundify_4px_4.Name = "TextButton_Roundify_4px"
 TextButton_Roundify_4px_4.Parent = Switch
@@ -704,7 +706,7 @@ TextButton_Roundify_4px_4.BackgroundColor3 = Color3.new(0.5, 0.8, 1) -- Bleu cla
 TextButton_Roundify_4px_4.BackgroundTransparency = 1
 TextButton_Roundify_4px_4.Size = UDim2.new(1, 0, 1, 0)
 TextButton_Roundify_4px_4.Image = "rbxassetid://2851929490"
-TextButton_Roundify_4px_4.ImageColor3 = Color3.new(15/255, 64/255, 64/255)
+TextButton_Roundify_4px_4.ImageColor3 = Color3.new(0.5, 0.8, 1) -- Bleu clair pour le switch
 TextButton_Roundify_4px_4.ImageTransparency = 0.5
 TextButton_Roundify_4px_4.ScaleType = Enum.ScaleType.Slice
 TextButton_Roundify_4px_4.SliceCenter = Rect.new(4, 4, 4, 4)
@@ -785,7 +787,7 @@ Input.Size = UDim2.new(0, 80, 1, -4)
 Input.ZIndex = 2
 Input.Font = Enum.Font.GothamSemibold
 Input.Text = "RShift"
-Input.TextColor3 = Color3.new(0.5, 0.8, 1) -- Bleu clair
+Input.TextColor3 = Color3.new(0.5, 0.8, 1) -- Bleu clair pour l'écriture
 Input.TextSize = 12
 Input.TextWrapped = true
 
