@@ -88,7 +88,7 @@ imgui.Parent = game:GetService("CoreGui")
 
 Prefabs.Name = "Prefabs"
 Prefabs.Parent = imgui
-Prefabs.BackgroundColor3 = Color3.new(1, 1, 1)
+Prefabs.BackgroundColor3 = Color3.new(15, 64, 64)
 Prefabs.Size = UDim2.new(0, 100, 0, 100)
 Prefabs.Visible = false
 
@@ -106,7 +106,7 @@ Label.TextXAlignment = Enum.TextXAlignment.Left
 Window.Name = "Window"
 Window.Parent = Prefabs
 Window.Active = true
-Window.BackgroundColor3 = Color3.new(1, 1, 1)
+Window.BackgroundColor3 = Color3.new(15, 64, 64)
 Window.BackgroundTransparency = 1
 Window.ClipsDescendants = true
 Window.Position = UDim2.new(0, 20, 0, 20)
