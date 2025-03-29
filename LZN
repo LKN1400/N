@@ -128,7 +128,7 @@ Resizer.Size = UDim2.new(0, 20, 0, 20)
 
 Bar.Name = "Bar"
 Bar.Parent = Window
-Bar.BackgroundColor3 = Color3.new(0.160784, 0.290196, 0.478431)
+Bar.BackgroundColor3 = Color3.new(25, 22, 40)
 Bar.BorderSizePixel = 0
 Bar.Position = UDim2.new(0, 0, 0, 5)
 Bar.Size = UDim2.new(1, 0, 0, 15)
@@ -150,60 +150,60 @@ Toggle.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&as
 
 Base.Name = "Base"
 Base.Parent = Bar
-Base.BackgroundColor3 = Color3.new(0.160784, 0.290196, 0.478431)
+Base.BackgroundColor3 = Color3.new(25, 22, 40)
 Base.BorderSizePixel = 0
 Base.Position = UDim2.new(0, 0, 0.800000012, 0)
 Base.Size = UDim2.new(1, 0, 0, 10)
 Base.Image = "rbxassetid://2851926732"
-Base.ImageColor3 = Color3.new(0.160784, 0.290196, 0.478431)
+Base.ImageColor3 = Color3.new(15, 64, 64)
 Base.ScaleType = Enum.ScaleType.Slice
 Base.SliceCenter = Rect.new(12, 12, 12, 12)
 
 Top.Name = "Top"
 Top.Parent = Bar
-Top.BackgroundColor3 = Color3.new(1, 1, 1)
+Top.BackgroundColor3 = Color3.new(25, 22, 40)
 Top.BackgroundTransparency = 1
 Top.Position = UDim2.new(0, 0, 0, -5)
 Top.Size = UDim2.new(1, 0, 0, 10)
 Top.Image = "rbxassetid://2851926732"
-Top.ImageColor3 = Color3.new(0.160784, 0.290196, 0.478431)
+Top.ImageColor3 = Color3.new(15, 64, 64)
 Top.ScaleType = Enum.ScaleType.Slice
 Top.SliceCenter = Rect.new(12, 12, 12, 12)
 
 Tabs.Name = "Tabs"
 Tabs.Parent = Window
-Tabs.BackgroundColor3 = Color3.new(1, 1, 1)
+Tabs.BackgroundColor3 = Color3.new(25, 22, 40)
 Tabs.BackgroundTransparency = 1
 Tabs.Position = UDim2.new(0, 15, 0, 60)
 Tabs.Size = UDim2.new(1, -30, 1, -60)
 
 Title.Name = "Title"
 Title.Parent = Window
-Title.BackgroundColor3 = Color3.new(1, 1, 1)
+Title.BackgroundColor3 = Color3.new(25, 22, 40)
 Title.BackgroundTransparency = 1
 Title.Position = UDim2.new(0, 30, 0, 3)
 Title.Size = UDim2.new(0, 200, 0, 20)
 Title.Font = Enum.Font.GothamBold
 Title.Text = "Gamer Time"
-Title.TextColor3 = Color3.new(1, 1, 1)
+Title.TextColor3 = Color3.new(15, 64, 64)
 Title.TextSize = 14
 Title.TextXAlignment = Enum.TextXAlignment.Left
 
 TabSelection.Name = "TabSelection"
 TabSelection.Parent = Window
-TabSelection.BackgroundColor3 = Color3.new(1, 1, 1)
+TabSelection.BackgroundColor3 = Color3.new(25, 22, 40)
 TabSelection.BackgroundTransparency = 1
 TabSelection.Position = UDim2.new(0, 15, 0, 30)
 TabSelection.Size = UDim2.new(1, -30, 0, 25)
 TabSelection.Visible = false
 TabSelection.Image = "rbxassetid://2851929490"
-TabSelection.ImageColor3 = Color3.new(0.145098, 0.14902, 0.156863)
+TabSelection.ImageColor3 = Color3.new(15, 64, 64)
 TabSelection.ScaleType = Enum.ScaleType.Slice
 TabSelection.SliceCenter = Rect.new(4, 4, 4, 4)
 
 TabButtons.Name = "TabButtons"
 TabButtons.Parent = TabSelection
-TabButtons.BackgroundColor3 = Color3.new(1, 1, 1)
+TabButtons.BackgroundColor3 = Color3.new(25, 22, 40)
 TabButtons.BackgroundTransparency = 1
 TabButtons.Size = UDim2.new(1, 0, 1, 0)
 
@@ -213,15 +213,15 @@ UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 UIListLayout.Padding = UDim.new(0, 2)
 
 Frame.Parent = TabSelection
-Frame.BackgroundColor3 = Color3.new(0.12549, 0.227451, 0.372549)
-Frame.BorderColor3 = Color3.new(0.105882, 0.164706, 0.207843)
+Frame.BackgroundColor3 = Color3.new(25, 22, 40)
+Frame.BorderColor3 = Color3.new(15, 64, 64)
 Frame.BorderSizePixel = 0
 Frame.Position = UDim2.new(0, 0, 1, 0)
 Frame.Size = UDim2.new(1, 0, 0, 2)
 
 Tab.Name = "Tab"
 Tab.Parent = Prefabs
-Tab.BackgroundColor3 = Color3.new(1, 1, 1)
+Tab.BackgroundColor3 = Color3.new(25, 22, 40)
 Tab.BackgroundTransparency = 1
 Tab.Size = UDim2.new(1, 0, 1, 0)
 Tab.Visible = false
@@ -308,13 +308,13 @@ TextLabel.TextColor3 = Color3.new(0.627451, 0.627451, 0.627451)
 TextLabel.TextSize = 14
 
 TextLabel_2.Parent = Slider
-TextLabel_2.BackgroundColor3 = Color3.new(1, 1, 1)
+TextLabel_2.BackgroundColor3 = Color3.new(25, 22, 40)
 TextLabel_2.BackgroundTransparency = 1
 TextLabel_2.Position = UDim2.new(1, -65, -0.75, 0)
 TextLabel_2.Size = UDim2.new(0, 26, 0, 50)
 TextLabel_2.Font = Enum.Font.GothamBold
 TextLabel_2.Text = "["
-TextLabel_2.TextColor3 = Color3.new(0.627451, 0.627451, 0.627451)
+TextLabel_2.TextColor3 = Color3.new(15, 64, 64)
 TextLabel_2.TextSize = 14
 
 Circle.Name = "Circle"
@@ -355,13 +355,13 @@ Indicator_2.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=4
 
 Box.Name = "Box"
 Box.Parent = Dropdown
-Box.BackgroundColor3 = Color3.new(1, 1, 1)
+Box.BackgroundColor3 = Color3.new(25, 22, 40)
 Box.BackgroundTransparency = 1
 Box.Position = UDim2.new(0, 0, 0, 25)
 Box.Size = UDim2.new(1, 0, 0, 150)
 Box.ZIndex = 3
 Box.Image = "rbxassetid://2851929490"
-Box.ImageColor3 = Color3.new(0.129412, 0.133333, 0.141176)
+Box.ImageColor3 = Color3.new(15, 64, 64)
 Box.ScaleType = Enum.ScaleType.Slice
 Box.SliceCenter = Rect.new(4, 4, 4, 4)
 
@@ -424,14 +424,14 @@ Folder.SliceCenter = Rect.new(4, 4, 4, 4)
 
 Button.Name = "Button"
 Button.Parent = Folder
-Button.BackgroundColor3 = Color3.new(0.160784, 0.290196, 0.478431)
+Button.BackgroundColor3 = Color3.new(25, 22, 40)
 Button.BackgroundTransparency = 1
 Button.BorderSizePixel = 0
 Button.Size = UDim2.new(1, 0, 0, 20)
 Button.ZIndex = 2
 Button.Font = Enum.Font.GothamSemibold
 Button.Text = "      Folder"
-Button.TextColor3 = Color3.new(1, 1, 1)
+Button.TextColor3 = Color3.new(15, 64, 64)
 Button.TextSize = 14
 Button.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -688,7 +688,7 @@ Indicator_4.ZIndex = 2
 
 Switch.Name = "Switch"
 Switch.Parent = Prefabs
-Switch.BackgroundColor3 = Color3.new(1, 1, 1)
+Switch.BackgroundColor3 = Color3.new(25, 22, 40)
 Switch.BackgroundTransparency = 1
 Switch.BorderSizePixel = 0
 Switch.Position = UDim2.new(0.229411766, 0, 0.20714286, 0)
@@ -696,7 +696,7 @@ Switch.Size = UDim2.new(0, 20, 0, 20)
 Switch.ZIndex = 2
 Switch.Font = Enum.Font.SourceSans
 Switch.Text = ""
-Switch.TextColor3 = Color3.new(1, 1, 1)
+Switch.TextColor3 = Color3.new(15, 64, 64)
 Switch.TextSize = 18
 
 TextButton_Roundify_4px_4.Name = "TextButton_Roundify_4px"
@@ -712,25 +712,25 @@ TextButton_Roundify_4px_4.SliceCenter = Rect.new(4, 4, 4, 4)
 
 Title_3.Name = "Title"
 Title_3.Parent = Switch
-Title_3.BackgroundColor3 = Color3.new(1, 1, 1)
+Title_3.BackgroundColor3 = Color3.new(25, 22, 40)
 Title_3.BackgroundTransparency = 1
 Title_3.Position = UDim2.new(1.20000005, 0, 0, 0)
 Title_3.Size = UDim2.new(0, 20, 0, 20)
 Title_3.Font = Enum.Font.GothamSemibold
 Title_3.Text = "Switch"
-Title_3.TextColor3 = Color3.new(0.784314, 0.784314, 0.784314)
+Title_3.TextColor3 = Color3.new(15, 64, 64)
 Title_3.TextSize = 14
 Title_3.TextXAlignment = Enum.TextXAlignment.Left
 
 Button_2.Name = "Button"
 Button_2.Parent = Prefabs
-Button_2.BackgroundColor3 = Color3.new(0.160784, 0.290196, 0.478431)
+Button_2.BackgroundColor3 = Color3.new(25, 22, 40)
 Button_2.BackgroundTransparency = 1
 Button_2.BorderSizePixel = 0
 Button_2.Size = UDim2.new(0, 91, 0, 20)
 Button_2.ZIndex = 2
 Button_2.Font = Enum.Font.GothamSemibold
-Button_2.TextColor3 = Color3.new(1, 1, 1)
+Button_2.TextColor3 = Color3.new(15, 64, 64)
 Button_2.TextSize = 14
 
 TextButton_Roundify_4px_5.Name = "TextButton_Roundify_4px"
@@ -767,7 +767,7 @@ Keybind.SliceCenter = Rect.new(4, 4, 4, 4)
 
 Title_4.Name = "Title"
 Title_4.Parent = Keybind
-Title_4.BackgroundColor3 = Color3.new(1, 1, 1)
+Title_4.BackgroundColor3 = Color3.new(25, 22, 40)
 Title_4.BackgroundTransparency = 1
 Title_4.Size = UDim2.new(0, 0, 1, 0)
 Title_4.Font = Enum.Font.GothamBold
@@ -778,7 +778,7 @@ Title_4.TextXAlignment = Enum.TextXAlignment.Left
 
 Input.Name = "Input"
 Input.Parent = Keybind
-Input.BackgroundColor3 = Color3.new(1, 1, 1)
+Input.BackgroundColor3 = Color3.new(15, 64, 64)
 Input.BackgroundTransparency = 1
 Input.BorderSizePixel = 0
 Input.Position = UDim2.new(1, -85, 0, 2)
@@ -802,7 +802,7 @@ Input_Roundify_4px.SliceCenter = Rect.new(4, 4, 4, 4)
 
 Windows.Name = "Windows"
 Windows.Parent = imgui
-Windows.BackgroundColor3 = Color3.new(1, 1, 1)
+Windows.BackgroundColor3 = Color3.new(25, 22, 40)
 Windows.BackgroundTransparency = 1
 Windows.Position = UDim2.new(0, 20, 0, 20)
 Windows.Size = UDim2.new(1, 20, 1, -20)
