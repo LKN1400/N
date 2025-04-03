@@ -10,494 +10,357 @@ do
 	if imgui then imgui:Destroy() end
 end
 
+-- Définir une palette de couleurs moderne
+local Colors = {
+    Background = Color3.fromRGB(30, 30, 35), -- Fond sombre
+    Accent = Color3.fromRGB(100, 150, 255), -- Bleu clair pour les accents
+    Text = Color3.fromRGB(220, 220, 220), -- Texte clair
+    Secondary = Color3.fromRGB(50, 50, 55), -- Fond secondaire
+    Highlight = Color3.fromRGB(80, 80, 90) -- Survol
+}
+
+-- Instances principales
 local imgui = Instance.new("ScreenGui")
 local Prefabs = Instance.new("Frame")
-local Label = Instance.new("TextLabel")
-local Window = Instance.new("ImageLabel")
-local Resizer = Instance.new("Frame")
-local Bar = Instance.new("Frame")
-local Toggle = Instance.new("ImageButton")
-local Base = Instance.new("ImageLabel")
-local Top = Instance.new("ImageLabel")
-local Tabs = Instance.new("Frame")
-local Title = Instance.new("TextLabel")
-local TabSelection = Instance.new("ImageLabel")
-local TabButtons = Instance.new("Frame")
-local UIListLayout = Instance.new("UIListLayout")
-local Frame = Instance.new("Frame")
-local Tab = Instance.new("Frame")
-local UIListLayout_2 = Instance.new("UIListLayout")
-local TextBox = Instance.new("TextBox")
-local TextBox_Roundify_4px = Instance.new("ImageLabel")
-local Slider = Instance.new("ImageLabel")
-local Title_2 = Instance.new("TextLabel")
-local Indicator = Instance.new("ImageLabel")
-local Value = Instance.new("TextLabel")
-local TextLabel = Instance.new("TextLabel")
-local TextLabel_2 = Instance.new("TextLabel")
-local Circle = Instance.new("ImageLabel")
-local UIListLayout_3 = Instance.new("UIListLayout")
-local Dropdown = Instance.new("TextButton")
-local Indicator_2 = Instance.new("ImageLabel")
-local Box = Instance.new("ImageButton")
-local Objects = Instance.new("ScrollingFrame")
-local UIListLayout_4 = Instance.new("UIListLayout")
-local TextButton_Roundify_4px = Instance.new("ImageLabel")
-local TabButton = Instance.new("TextButton")
-local TextButton_Roundify_4px_2 = Instance.new("ImageLabel")
-local Folder = Instance.new("ImageLabel")
-local Button = Instance.new("TextButton")
-local TextButton_Roundify_4px_3 = Instance.new("ImageLabel")
-local Toggle_2 = Instance.new("ImageLabel")
-local Objects_2 = Instance.new("Frame")
-local UIListLayout_5 = Instance.new("UIListLayout")
-local HorizontalAlignment = Instance.new("Frame")
-local UIListLayout_6 = Instance.new("UIListLayout")
-local Console = Instance.new("ImageLabel")
-local ScrollingFrame = Instance.new("ScrollingFrame")
-local Source = Instance.new("TextBox")
-local Comments = Instance.new("TextLabel")
-local Globals = Instance.new("TextLabel")
-local Keywords = Instance.new("TextLabel")
-local RemoteHighlight = Instance.new("TextLabel")
-local Strings = Instance.new("TextLabel")
-local Tokens = Instance.new("TextLabel")
-local Numbers = Instance.new("TextLabel")
-local Info = Instance.new("TextLabel")
-local Lines = Instance.new("TextLabel")
-local ColorPicker = Instance.new("ImageLabel")
-local Palette = Instance.new("ImageLabel")
-local Indicator_3 = Instance.new("ImageLabel")
-local Sample = Instance.new("ImageLabel")
-local Saturation = Instance.new("ImageLabel")
-local Indicator_4 = Instance.new("Frame")
-local Switch = Instance.new("TextButton")
-local TextButton_Roundify_4px_4 = Instance.new("ImageLabel")
-local Title_3 = Instance.new("TextLabel")
-local Button_2 = Instance.new("TextButton")
-local TextButton_Roundify_4px_5 = Instance.new("ImageLabel")
-local DropdownButton = Instance.new("TextButton")
-local Keybind = Instance.new("ImageLabel")
-local Title_4 = Instance.new("TextLabel")
-local Input = Instance.new("TextButton")
-local Input_Roundify_4px = Instance.new("ImageLabel")
 local Windows = Instance.new("Frame")
 
--- Configuration de l'interface principale
+-- Configuration de base
 imgui.Name = "imgui"
 imgui.Parent = game:GetService("CoreGui")
 
 Prefabs.Name = "Prefabs"
 Prefabs.Parent = imgui
-Prefabs.BackgroundColor3 = Color3.new(0.1, 0.12, 0.15)
+Prefabs.BackgroundTransparency = 1
 Prefabs.Size = UDim2.new(0, 100, 0, 100)
 Prefabs.Visible = false
 
+Windows.Name = "Windows"
+Windows.Parent = imgui
+Windows.BackgroundTransparency = 1
+Windows.Position = UDim2.new(0, 20, 0, 20)
+Windows.Size = UDim2.new(1, -40, 1, -40)
+
+-- Élément : Label
+local Label = Instance.new("TextLabel")
 Label.Name = "Label"
 Label.Parent = Prefabs
-Label.BackgroundColor3 = Color3.new(0.1, 0.12, 0.15)
 Label.BackgroundTransparency = 1
-Label.Size = UDim2.new(0, 200, 0, 20)
-Label.Font = Enum.Font.GothamSemibold
-Label.Text = "Hello, world 123"
-Label.TextColor3 = Color3.new(0.2, 0.3, 0.6) -- Bleu nuit clair
-Label.TextSize = 14
+Label.Size = UDim2.new(0, 200, 0, 25)
+Label.Font = Enum.Font.SourceSansPro
+Label.Text = "Hello, World!"
+Label.TextColor3 = Colors.Text
+Label.TextSize = 16
 Label.TextXAlignment = Enum.TextXAlignment.Left
 
+-- Élément : Window
+local Window = Instance.new("ImageLabel")
 Window.Name = "Window"
 Window.Parent = Prefabs
 Window.Active = true
-Window.BackgroundColor3 = Color3.new(0.1, 0.12, 0.15)
 Window.BackgroundTransparency = 1
 Window.ClipsDescendants = true
-Window.Position = UDim2.new(0, 20, 0, 20)
-Window.Selectable = true
-Window.Size = UDim2.new(0, 200, 0, 200)
+Window.Position = UDim2.new(0.5, -125, 0.5, -150)
+Window.Size = UDim2.new(0, 250, 0, 300)
 Window.Image = "rbxassetid://2851926732"
-Window.ImageColor3 = Color3.new(0.1, 0.12, 0.15)
+Window.ImageColor3 = Colors.Background
 Window.ScaleType = Enum.ScaleType.Slice
 Window.SliceCenter = Rect.new(12, 12, 12, 12)
 
+local Shadow = Instance.new("ImageLabel")
+Shadow.Name = "Shadow"
+Shadow.Parent = Window
+Shadow.BackgroundTransparency = 1
+Shadow.Size = UDim2.new(1, 20, 1, 20)
+Shadow.Position = UDim2.new(0, -10, 0, -10)
+Shadow.Image = "rbxassetid://1316045217"
+Shadow.ImageTransparency = 0.7
+Shadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+Shadow.ZIndex = -1
+
+local Resizer = Instance.new("Frame")
 Resizer.Name = "Resizer"
 Resizer.Parent = Window
 Resizer.Active = true
-Resizer.BackgroundColor3 = Color3.new(1, 1, 1)
-Resizer.BackgroundTransparency = 1
+Resizer.BackgroundTransparency = 0.5
+Resizer.BackgroundColor3 = Colors.Accent
 Resizer.BorderSizePixel = 0
 Resizer.Position = UDim2.new(1, -20, 1, -20)
 Resizer.Size = UDim2.new(0, 20, 0, 20)
 
+local Bar = Instance.new("Frame")
 Bar.Name = "Bar"
 Bar.Parent = Window
-Bar.BackgroundColor3 = Color3.new(0.15, 0.18, 0.22)
+Bar.BackgroundColor3 = Colors.Accent
 Bar.BorderSizePixel = 0
-Bar.Position = UDim2.new(0, 0, 0, 5)
-Bar.Size = UDim2.new(1, 0, 0, 15)
+Bar.Position = UDim2.new(0, 0, 0, 0)
+Bar.Size = UDim2.new(1, 0, 0, 25)
 
-Toggle.Name = "Toggle"
-Toggle.Parent = Bar
-Toggle.BackgroundColor3 = Color3.new(1, 1, 1)
-Toggle.BackgroundTransparency = 1
-Toggle.Position = UDim2.new(0, 5, 0, -2)
-Toggle.Rotation = 0
-coroutine.wrap(function()
-    while(wait(.1)) do
-        Toggle.Rotation = 0
-    end
-end)()
-Toggle.Size = UDim2.new(0, 20, 0, 20)
-Toggle.ZIndex = 2
-Toggle.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&assetId=89566385300354"
-
-Base.Name = "Base"
-Base.Parent = Bar
-Base.BackgroundColor3 = Color3.new(0.15, 0.18, 0.22)
-Base.BorderSizePixel = 0
-Base.Position = UDim2.new(0, 0, 0.800000012, 0)
-Base.Size = UDim2.new(1, 0, 0, 10)
-Base.Image = "rbxassetid://2851926732"
-Base.ImageColor3 = Color3.new(0.15, 0.18, 0.22)
-Base.ScaleType = Enum.ScaleType.Slice
-Base.SliceCenter = Rect.new(12, 12, 12, 12)
-
-Top.Name = "Top"
-Top.Parent = Bar
-Top.BackgroundColor3 = Color3.new(1, 1, 1)
-Top.BackgroundTransparency = 1
-Top.Position = UDim2.new(0, 0, 0, -5)
-Top.Size = UDim2.new(1, 0, 0, 10)
-Top.Image = "rbxassetid://2851926732"
-Top.ImageColor3 = Color3.new(0.15, 0.18, 0.22)
-Top.ScaleType = Enum.ScaleType.Slice
-Top.SliceCenter = Rect.new(12, 12, 12, 12)
-
-Tabs.Name = "Tabs"
-Tabs.Parent = Window
-Tabs.BackgroundColor3 = Color3.new(1, 1, 1)
-Tabs.BackgroundTransparency = 1
-Tabs.Position = UDim2.new(0, 15, 0, 60)
-Tabs.Size = UDim2.new(1, -30, 1, -60)
-
+local Title = Instance.new("TextLabel")
 Title.Name = "Title"
-Title.Parent = Window
-Title.BackgroundColor3 = Color3.new(1, 1, 1)
+Title.Parent = Bar
 Title.BackgroundTransparency = 1
-Title.Position = UDim2.new(0, 30, 0, 3)
-Title.Size = UDim2.new(0, 200, 0, 20)
-Title.Font = Enum.Font.GothamBold
+Title.Position = UDim2.new(0, 10, 0, 0)
+Title.Size = UDim2.new(1, -20, 1, 0)
+Title.Font = Enum.Font.SourceSansPro
 Title.Text = "Gamer Time"
-Title.TextColor3 = Color3.new(0.15, 0.25, 0.55) -- Bleu nuit foncé
-Title.TextSize = 16
+Title.TextColor3 = Colors.Text
+Title.TextSize = 18
 Title.TextXAlignment = Enum.TextXAlignment.Left
 
+local Toggle = Instance.new("ImageButton")
+Toggle.Name = "Toggle"
+Toggle.Parent = Bar
+Toggle.BackgroundTransparency = 1
+Toggle.Position = UDim2.new(1, -25, 0, 2)
+Toggle.Size = UDim2.new(0, 20, 0, 20)
+Toggle.Image = "rbxassetid://4731371541"
+Toggle.ImageColor3 = Colors.Text
+
+-- Élément : Tabs
+local Tabs = Instance.new("Frame")
+Tabs.Name = "Tabs"
+Tabs.Parent = Window
+Tabs.BackgroundTransparency = 1
+Tabs.Position = UDim2.new(0, 10, 0, 35)
+Tabs.Size = UDim2.new(1, -20, 1, -45)
+
+local TabSelection = Instance.new("ImageLabel")
 TabSelection.Name = "TabSelection"
 TabSelection.Parent = Window
-TabSelection.BackgroundColor3 = Color3.new(1, 1, 1)
 TabSelection.BackgroundTransparency = 1
-TabSelection.Position = UDim2.new(0, 15, 0, 30)
-TabSelection.Size = UDim2.new(1, -30, 0, 25)
-TabSelection.Visible = false
+TabSelection.Position = UDim2.new(0, 10, 0, 35)
+TabSelection.Size = UDim2.new(1, -20, 0, 30)
 TabSelection.Image = "rbxassetid://2851929490"
-TabSelection.ImageColor3 = Color3.new(0.15, 0.18, 0.22)
+TabSelection.ImageColor3 = Colors.Secondary
 TabSelection.ScaleType = Enum.ScaleType.Slice
 TabSelection.SliceCenter = Rect.new(4, 4, 4, 4)
 
+local TabButtons = Instance.new("Frame")
 TabButtons.Name = "TabButtons"
 TabButtons.Parent = TabSelection
-TabButtons.BackgroundColor3 = Color3.new(1, 1, 1)
 TabButtons.BackgroundTransparency = 1
 TabButtons.Size = UDim2.new(1, 0, 1, 0)
 
+local UIListLayout = Instance.new("UIListLayout")
 UIListLayout.Parent = TabButtons
 UIListLayout.FillDirection = Enum.FillDirection.Horizontal
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-UIListLayout.Padding = UDim.new(0, 4)
+UIListLayout.Padding = UDim.new(0, 5)
 
-Frame.Parent = TabSelection
-Frame.BackgroundColor3 = Color3.new(0.15, 0.25, 0.55)
-Frame.BorderColor3 = Color3.new(0.15, 0.25, 0.55)
-Frame.BorderSizePixel = 0
-Frame.Position = UDim2.new(0, 0, 1, 0)
-Frame.Size = UDim2.new(1, 0, 0, 2)
-
+local Tab = Instance.new("Frame")
 Tab.Name = "Tab"
 Tab.Parent = Prefabs
-Tab.BackgroundColor3 = Color3.new(1, 1, 1)
 Tab.BackgroundTransparency = 1
 Tab.Size = UDim2.new(1, 0, 1, 0)
 Tab.Visible = false
 
+local UIListLayout_2 = Instance.new("UIListLayout")
 UIListLayout_2.Parent = Tab
 UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
-UIListLayout_2.Padding = UDim.new(0, 8)
+UIListLayout_2.Padding = UDim.new(0, 10)
 
+-- Élément : TextBox
+local TextBox = Instance.new("TextBox")
 TextBox.Parent = Prefabs
-TextBox.BackgroundColor3 = Color3.new(1, 1, 1)
 TextBox.BackgroundTransparency = 1
-TextBox.BorderSizePixel = 0
-TextBox.Size = UDim2.new(1, 0, 0, 20)
+TextBox.Size = UDim2.new(1, -10, 0, 30)
 TextBox.ZIndex = 2
-TextBox.Font = Enum.Font.GothamSemibold
-TextBox.PlaceholderColor3 = Color3.new(0.4, 0.45, 0.65) -- Bleu gris clair
-TextBox.PlaceholderText = "Input Text"
+TextBox.Font = Enum.Font.SourceSansPro
+TextBox.PlaceholderColor3 = Colors.Text:Lerp(Color3.fromRGB(0, 0, 0), 0.5)
+TextBox.PlaceholderText = "Enter Text"
 TextBox.Text = ""
-TextBox.TextColor3 = Color3.new(0.2, 0.3, 0.6) -- Bleu nuit clair
-TextBox.TextSize = 14
+TextBox.TextColor3 = Colors.Text
+TextBox.TextSize = 16
 
-TextBox_Roundify_4px.Name = "TextBox_Roundify_4px"
-TextBox_Roundify_4px.Parent = TextBox
-TextBox_Roundify_4px.BackgroundColor3 = Color3.new(1, 1, 1)
-TextBox_Roundify_4px.BackgroundTransparency = 1
-TextBox_Roundify_4px.Size = UDim2.new(1, 0, 1, 0)
-TextBox_Roundify_4px.Image = "rbxassetid://2851929490"
-TextBox_Roundify_4px.ImageColor3 = Color3.new(0.25, 0.27, 0.3)
-TextBox_Roundify_4px.ScaleType = Enum.ScaleType.Slice
-TextBox_Roundify_4px.SliceCenter = Rect.new(4, 4, 4, 4)
+local TextBox_Roundify = Instance.new("ImageLabel")
+TextBox_Roundify.Name = "TextBox_Roundify"
+TextBox_Roundify.Parent = TextBox
+TextBox_Roundify.BackgroundTransparency = 1
+TextBox_Roundify.Size = UDim2.new(1, 0, 1, 0)
+TextBox_Roundify.Image = "rbxassetid://2851929490"
+TextBox_Roundify.ImageColor3 = Colors.Secondary
+TextBox_Roundify.ScaleType = Enum.ScaleType.Slice
+TextBox_Roundify.SliceCenter = Rect.new(4, 4, 4, 4)
 
+-- Élément : Slider
+local Slider = Instance.new("ImageLabel")
 Slider.Name = "Slider"
 Slider.Parent = Prefabs
-Slider.BackgroundColor3 = Color3.new(1, 1, 1)
 Slider.BackgroundTransparency = 1
-Slider.Position = UDim2.new(0, 0, 0.178571433, 0)
-Slider.Size = UDim2.new(1, 0, 0, 20)
+Slider.Size = UDim2.new(1, -10, 0, 40)
 Slider.Image = "rbxassetid://2851929490"
-Slider.ImageColor3 = Color3.new(0.15, 0.18, 0.22)
+Slider.ImageColor3 = Colors.Secondary
 Slider.ScaleType = Enum.ScaleType.Slice
 Slider.SliceCenter = Rect.new(4, 4, 4, 4)
 
-Title_2.Name = "Title"
-Title_2.Parent = Slider
-Title_2.BackgroundColor3 = Color3.new(1, 1, 1)
-Title_2.BackgroundTransparency = 1
-Title_2.Position = UDim2.new(0.5, 0, 0.5, -10)
-Title_2.Size = UDim2.new(0, 0, 0, 20)
-Title_2.ZIndex = 2
-Title_2.Font = Enum.Font.GothamBold
-Title_2.Text = "Slider"
-Title_2.TextColor3 = Color3.new(0.15, 0.25, 0.55) -- Bleu nuit foncé
-Title_2.TextSize = 14
+local SliderTitle = Instance.new("TextLabel")
+SliderTitle.Name = "Title"
+SliderTitle.Parent = Slider
+SliderTitle.BackgroundTransparency = 1
+SliderTitle.Position = UDim2.new(0, 5, 0, 5)
+SliderTitle.Size = UDim2.new(0.5, 0, 0, 20)
+SliderTitle.Font = Enum.Font.SourceSansPro
+SliderTitle.Text = "Slider"
+SliderTitle.TextColor3 = Colors.Text
+SliderTitle.TextSize = 16
+SliderTitle.TextXAlignment = Enum.TextXAlignment.Left
 
+local Indicator = Instance.new("ImageLabel")
 Indicator.Name = "Indicator"
 Indicator.Parent = Slider
-Indicator.BackgroundColor3 = Color3.new(1, 1, 1)
 Indicator.BackgroundTransparency = 1
-Indicator.Size = UDim2.new(0, 0, 0, 20)
+Indicator.Size = UDim2.new(0.5, 0, 1, 0)
 Indicator.Image = "rbxassetid://2851929490"
-Indicator.ImageColor3 = Color3.new(0.15, 0.25, 0.55)
+Indicator.ImageColor3 = Colors.Accent
 Indicator.ScaleType = Enum.ScaleType.Slice
 Indicator.SliceCenter = Rect.new(4, 4, 4, 4)
 
+local Value = Instance.new("TextLabel")
 Value.Name = "Value"
 Value.Parent = Slider
-Value.BackgroundColor3 = Color3.new(1, 1, 1)
 Value.BackgroundTransparency = 1
-Value.Position = UDim2.new(1, -55, 0.5, -10)
-Value.Size = UDim2.new(0, 50, 0, 20)
-Value.Font = Enum.Font.GothamBold
-Value.Text = "0%"
-Value.TextColor3 = Color3.new(0.2, 0.3, 0.6) -- Bleu nuit clair
+Value.Position = UDim2.new(1, -50, 0, 5)
+Value.Size = UDim2.new(0, 45, 0, 20)
+Value.Font = Enum.Font.SourceSansPro
+Value.Text = "50%"
+Value.TextColor3 = Colors.Text
 Value.TextSize = 14
 
-TextLabel.Parent = Slider
-TextLabel.BackgroundColor3 = Color3.new(1, 1, 1)
-TextLabel.BackgroundTransparency = 1
-TextLabel.Position = UDim2.new(1, -20, -0.75, 0)
-TextLabel.Size = UDim2.new(0, 26, 0, 50)
-TextLabel.Font = Enum.Font.GothamBold
-TextLabel.Text = "]"
-TextLabel.TextColor3 = Color3.new(0.4, 0.45, 0.65) -- Bleu gris clair
-TextLabel.TextSize = 14
-
-TextLabel_2.Parent = Slider
-TextLabel_2.BackgroundColor3 = Color3.new(1, 1, 1)
-TextLabel_2.BackgroundTransparency = 1
-TextLabel_2.Position = UDim2.new(1, -65, -0.75, 0)
-TextLabel_2.Size = UDim2.new(0, 26, 0, 50)
-TextLabel_2.Font = Enum.Font.GothamBold
-TextLabel_2.Text = "["
-TextLabel_2.TextColor3 = Color3.new(0.4, 0.45, 0.65) -- Bleu gris clair
-TextLabel_2.TextSize = 14
-
-Circle.Name = "Circle"
-Circle.Parent = Prefabs
-Circle.BackgroundColor3 = Color3.new(1, 1, 1)
-Circle.BackgroundTransparency = 1
-Circle.Image = "rbxassetid://266543268"
-Circle.ImageTransparency = 0.5
-
-UIListLayout_3.Parent = Prefabs
-UIListLayout_3.FillDirection = Enum.FillDirection.Horizontal
-UIListLayout_3.SortOrder = Enum.SortOrder.LayoutOrder
-UIListLayout_3.Padding = UDim.new(0, 20)
-
+-- Élément : Dropdown
+local Dropdown = Instance.new("TextButton")
 Dropdown.Name = "Dropdown"
 Dropdown.Parent = Prefabs
-Dropdown.BackgroundColor3 = Color3.new(0.25, 0.27, 0.3)
 Dropdown.BackgroundTransparency = 1
-Dropdown.BorderSizePixel = 0
-Dropdown.Position = UDim2.new(-0.055555556, 0, 0.0833333284, 0)
-Dropdown.Size = UDim2.new(0, 200, 0, 20)
+Dropdown.Size = UDim2.new(1, -10, 0, 35)
 Dropdown.ZIndex = 2
-Dropdown.Font = Enum.Font.GothamBold
-Dropdown.Text = "      Dropdown"
-Dropdown.TextColor3 = Color3.new(0.2, 0.3, 0.6) -- Bleu nuit clair
-Dropdown.TextSize = 14
+Dropdown.Font = Enum.Font.SourceSansPro
+Dropdown.Text = "Dropdown"
+Dropdown.TextColor3 = Colors.Text
+Dropdown.TextSize = 16
 Dropdown.TextXAlignment = Enum.TextXAlignment.Left
 
-Indicator_2.Name = "Indicator"
-Indicator_2.Parent = Dropdown
-Indicator_2.BackgroundColor3 = Color3.new(1, 1, 1)
-Indicator_2.BackgroundTransparency = 1
-Indicator_2.Position = UDim2.new(0.899999976, -10, 0.100000001, 0)
-Indicator_2.Rotation = -90
-Indicator_2.Size = UDim2.new(0, 15, 0, 15)
-Indicator_2.ZIndex = 2
-Indicator_2.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&assetId=4744658743"
+local DropdownRoundify = Instance.new("ImageLabel")
+DropdownRoundify.Name = "TextButton_Roundify"
+DropdownRoundify.Parent = Dropdown
+DropdownRoundify.BackgroundTransparency = 1
+DropdownRoundify.Size = UDim2.new(1, 0, 1, 0)
+DropdownRoundify.Image = "rbxassetid://2851929490"
+DropdownRoundify.ImageColor3 = Colors.Secondary
+DropdownRoundify.ScaleType = Enum.ScaleType.Slice
+DropdownRoundify.SliceCenter = Rect.new(4, 4, 4, 4)
 
+local Box = Instance.new("ImageButton")
 Box.Name = "Box"
 Box.Parent = Dropdown
-Box.BackgroundColor3 = Color3.new(1, 1, 1)
 Box.BackgroundTransparency = 1
-Box.Position = UDim2.new(0, 0, 0, 25)
-Box.Size = UDim2.new(1, 0, 0, 150)
+Box.Position = UDim2.new(0, 0, 0, 40)
+Box.Size = UDim2.new(1, 0, 0, 160)
 Box.ZIndex = 3
 Box.Image = "rbxassetid://2851929490"
-Box.ImageColor3 = Color3.new(0.15, 0.18, 0.22)
+Box.ImageColor3 = Colors.Background
 Box.ScaleType = Enum.ScaleType.Slice
 Box.SliceCenter = Rect.new(4, 4, 4, 4)
 
+local Objects = Instance.new("ScrollingFrame")
 Objects.Name = "Objects"
 Objects.Parent = Box
-Objects.BackgroundColor3 = Color3.new(1, 1, 1)
 Objects.BackgroundTransparency = 1
 Objects.BorderSizePixel = 0
 Objects.Size = UDim2.new(1, 0, 1, 0)
 Objects.ZIndex = 3
 Objects.CanvasSize = UDim2.new(0, 0, 0, 0)
-Objects.ScrollBarThickness = 8
+Objects.ScrollBarThickness = 6
 
+local UIListLayout_4 = Instance.new("UIListLayout")
 UIListLayout_4.Parent = Objects
 UIListLayout_4.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout_4.Padding = UDim.new(0, 5)
 
-TextButton_Roundify_4px.Name = "TextButton_Roundify_4px"
-TextButton_Roundify_4px.Parent = Dropdown
-TextButton_Roundify_4px.BackgroundColor3 = Color3.new(1, 1, 1)
-TextButton_Roundify_4px.BackgroundTransparency = 1
-TextButton_Roundify_4px.Size = UDim2.new(1, 0, 1, 0)
-TextButton_Roundify_4px.Image = "rbxassetid://2851929490"
-TextButton_Roundify_4px.ImageColor3 = Color3.new(0.25, 0.27, 0.3)
-TextButton_Roundify_4px.ScaleType = Enum.ScaleType.Slice
-TextButton_Roundify_4px.SliceCenter = Rect.new(4, 4, 4, 4)
-
-TabButton.Name = "TabButton"
-TabButton.Parent = Prefabs
-TabButton.BackgroundColor3 = Color3.new(0.15, 0.18, 0.22)
-TabButton.BackgroundTransparency = 1
-TabButton.BorderSizePixel = 0
-TabButton.Position = UDim2.new(0.185185179, 0, 0, 0)
-TabButton.Size = UDim2.new(0, 71, 0, 20)
-TabButton.ZIndex = 2
-TabButton.Font = Enum.Font.GothamSemibold
-TabButton.Text = "Test tab"
-TabButton.TextColor3 = Color3.new(0.2, 0.3, 0.6) -- Bleu nuit clair
-TabButton.TextSize = 14
-
-TextButton_Roundify_4px_2.Name = "TextButton_Roundify_4px"
-TextButton_Roundify_4px_2.Parent = TabButton
-TextButton_Roundify_4px_2.BackgroundColor3 = Color3.new(1, 1, 1)
-TextButton_Roundify_4px_2.BackgroundTransparency = 1
-TextButton_Roundify_4px_2.Size = UDim2.new(1, 0, 1, 0)
-TextButton_Roundify_4px_2.Image = "rbxassetid://2851929490"
-TextButton_Roundify_4px_2.ImageColor3 = Color3.new(0.25, 0.27, 0.3)
-TextButton_Roundify_4px_2.ScaleType = Enum.ScaleType.Slice
-TextButton_Roundify_4px_2.SliceCenter = Rect.new(4, 4, 4, 4)
-
-Folder.Name = "Folder"
-Folder.Parent = Prefabs
-Folder.BackgroundColor3 = Color3.new(1, 1, 1)
-Folder.BackgroundTransparency = 1
-Folder.Position = UDim2.new(0, 0, 0, 50)
-Folder.Size = UDim2.new(1, 0, 0, 20)
-Folder.Image = "rbxassetid://2851929490"
-Folder.ImageColor3 = Color3.new(0.15, 0.18, 0.22)
-Folder.ScaleType = Enum.ScaleType.Slice
-Folder.SliceCenter = Rect.new(4, 4, 4, 4)
-
+-- Élément : Button
+local Button = Instance.new("TextButton")
 Button.Name = "Button"
-Button.Parent = Folder
-Button.BackgroundColor3 = Color3.new(0.15, 0.18, 0.22)
+Button.Parent = Prefabs
 Button.BackgroundTransparency = 1
-Button.BorderSizePixel = 0
-Button.Size = UDim2.new(1, 0, 0, 20)
+Button.Size = UDim2.new(1, -10, 0, 35)
 Button.ZIndex = 2
-Button.Font = Enum.Font.GothamSemibold
-Button.Text = "      Folder"
-Button.TextColor3 = Color3.new(0.2, 0.3, 0.6) -- Bleu nuit clair
-Button.TextSize = 14
-Button.TextXAlignment = Enum.TextXAlignment.Left
+Button.Font = Enum.Font.SourceSansPro
+Button.Text = "Button"
+Button.TextColor3 = Colors.Text
+Button.TextSize = 16
 
-TextButton_Roundify_4px_3.Name = "TextButton_Roundify_4px"
-TextButton_Roundify_4px_3.Parent = Button
-TextButton_Roundify_4px_3.BackgroundColor3 = Color3.new(1, 1, 1)
-TextButton_Roundify_4px_3.BackgroundTransparency = 1
-TextButton_Roundify_4px_3.Size = UDim2.new(1, 0, 1, 0)
-TextButton_Roundify_4px_3.Image = "rbxassetid://2851929490"
-TextButton_Roundify_4px_3.ImageColor3 = Color3.new(0.15, 0.25, 0.55)
-TextButton_Roundify_4px_3.ScaleType = Enum.ScaleType.Slice
-TextButton_Roundify_4px_3.SliceCenter = Rect.new(4, 4, 4, 4)
+local ButtonRoundify = Instance.new("ImageLabel")
+ButtonRoundify.Name = "TextButton_Roundify"
+ButtonRoundify.Parent = Button
+ButtonRoundify.BackgroundTransparency = 1
+ButtonRoundify.Size = UDim2.new(1, 0, 1, 0)
+ButtonRoundify.Image = "rbxassetid://2851929490"
+ButtonRoundify.ImageColor3 = Colors.Accent
+ButtonRoundify.ScaleType = Enum.ScaleType.Slice
+ButtonRoundify.SliceCenter = Rect.new(4, 4, 4, 4)
 
-Toggle_2.Name = "Toggle"
-Toggle_2.Parent = Button
-Toggle_2.BackgroundColor3 = Color3.new(1, 1, 1)
-Toggle_2.BackgroundTransparency = 1
-Toggle_2.Position = UDim2.new(0, 5, 0, 0)
-Toggle_2.Size = UDim2.new(0, 20, 0, 20)
-Toggle_2.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&assetId=4731371541"
+Button.MouseEnter:Connect(function()
+    ButtonRoundify.ImageColor3 = Colors.Highlight
+end)
+Button.MouseLeave:Connect(function()
+    ButtonRoundify.ImageColor3 = Colors.Accent
+end)
 
-Objects_2.Name = "Objects"
-Objects_2.Parent = Folder
-Objects_2.BackgroundColor3 = Color3.new(1, 1, 1)
-Objects_2.BackgroundTransparency = 1
-Objects_2.Position = UDim2.new(0, 10, 0, 25)
-Objects_2.Size = UDim2.new(1, -10, 1, -25)
-Objects_2.Visible = false
+-- Élément : Toggle
+local Switch = Instance.new("TextButton")
+Switch.Name = "Switch"
+Switch.Parent = Prefabs
+Switch.BackgroundTransparency = 1
+Switch.Size = UDim2.new(0, 50, 0, 25)
+Switch.ZIndex = 2
+Switch.Font = Enum.Font.SourceSans
+Switch.Text = ""
+Switch.TextColor3 = Colors.Text
+Switch.TextSize = 18
 
-UIListLayout_5.Parent = Objects_2
-UIListLayout_5.SortOrder = Enum.SortOrder.LayoutOrder
-UIListLayout_5.Padding = UDim.new(0, 8)
+local SwitchRoundify = Instance.new("ImageLabel")
+SwitchRoundify.Name = "TextButton_Roundify"
+SwitchRoundify.Parent = Switch
+SwitchRoundify.BackgroundTransparency = 1
+SwitchRoundify.Size = UDim2.new(1, 0, 1, 0)
+SwitchRoundify.Image = "rbxassetid://2851929490"
+SwitchRoundify.ImageColor3 = Colors.Secondary
+SwitchRoundify.ScaleType = Enum.ScaleType.Slice
+SwitchRoundify.SliceCenter = Rect.new(4, 4, 4, 4)
 
-HorizontalAlignment.Name = "HorizontalAlignment"
-HorizontalAlignment.Parent = Prefabs
-HorizontalAlignment.BackgroundColor3 = Color3.new(1, 1, 1)
-HorizontalAlignment.BackgroundTransparency = 1
-HorizontalAlignment.Size = UDim2.new(1, 0, 0, 20)
+local SwitchTitle = Instance.new("TextLabel")
+SwitchTitle.Name = "Title"
+SwitchTitle.Parent = Switch
+SwitchTitle.BackgroundTransparency = 1
+SwitchTitle.Position = UDim2.new(1, 10, 0, 0)
+SwitchTitle.Size = UDim2.new(0, 50, 1, 0)
+SwitchTitle.Font = Enum.Font.SourceSansPro
+SwitchTitle.Text = "Toggle"
+SwitchTitle.TextColor3 = Colors.Text
+SwitchTitle.TextSize = 16
+SwitchTitle.TextXAlignment = Enum.TextXAlignment.Left
 
-UIListLayout_6.Parent = HorizontalAlignment
-UIListLayout_6.FillDirection = Enum.FillDirection.Horizontal
-UIListLayout_6.SortOrder = Enum.SortOrder.LayoutOrder
-UIListLayout_6.Padding = UDim.new(0, 8)
-
+-- Élément : Console
+local Console = Instance.new("ImageLabel")
 Console.Name = "Console"
 Console.Parent = Prefabs
-Console.BackgroundColor3 = Color3.new(1, 1, 1)
 Console.BackgroundTransparency = 1
-Console.Size = UDim2.new(1, 0, 0, 200)
+Console.Size = UDim2.new(1, 0, 0, 250)
 Console.Image = "rbxassetid://2851928141"
-Console.ImageColor3 = Color3.new(0.15, 0.18, 0.22)
+Console.ImageColor3 = Colors.Background
 Console.ScaleType = Enum.ScaleType.Slice
 Console.SliceCenter = Rect.new(8, 8, 8, 8)
 
+local ScrollingFrame = Instance.new("ScrollingFrame")
 ScrollingFrame.Parent = Console
-ScrollingFrame.BackgroundColor3 = Color3.new(1, 1, 1)
 ScrollingFrame.BackgroundTransparency = 1
 ScrollingFrame.BorderSizePixel = 0
-ScrollingFrame.Size = UDim2.new(1, 0, 1, 1)
+ScrollingFrame.Size = UDim2.new(1, 0, 1, 0)
 ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
 ScrollingFrame.ScrollBarThickness = 4
 
+local Source = Instance.new("TextBox")
 Source.Name = "Source"
 Source.Parent = ScrollingFrame
-Source.BackgroundColor3 = Color3.new(1, 1, 1)
 Source.BackgroundTransparency = 1
 Source.Position = UDim2.new(0, 40, 0, 0)
 Source.Size = UDim2.new(1, -40, 0, 10000)
@@ -505,308 +368,127 @@ Source.ZIndex = 3
 Source.ClearTextOnFocus = false
 Source.Font = Enum.Font.Code
 Source.MultiLine = true
-Source.PlaceholderColor3 = Color3.new(0.8, 0.8, 0.8)
+Source.PlaceholderColor3 = Colors.Text:Lerp(Color3.fromRGB(0, 0, 0), 0.5)
 Source.Text = ""
-Source.TextColor3 = Color3.new(0.2, 0.3, 0.6) -- Bleu nuit clair
-Source.TextSize = 15
-Source.TextStrokeColor3 = Color3.new(0.2, 0.3, 0.6)
-Source.TextWrapped = true
+Source.TextColor3 = Colors.Text
+Source.TextSize = 16
 Source.TextXAlignment = Enum.TextXAlignment.Left
 Source.TextYAlignment = Enum.TextYAlignment.Top
 
-Comments.Name = "Comments"
-Comments.Parent = Source
-Comments.BackgroundColor3 = Color3.new(1, 1, 1)
-Comments.BackgroundTransparency = 1
-Comments.Size = UDim2.new(1, 0, 1, 0)
-Comments.ZIndex = 5
-Comments.Font = Enum.Font.Code
-Comments.Text = ""
-Comments.TextColor3 = Color3.new(0.25, 0.35, 0.65) -- Bleu nuit clair pour commentaires
-Comments.TextSize = 15
-Comments.TextXAlignment = Enum.TextXAlignment.Left
-Comments.TextYAlignment = Enum.TextYAlignment.Top
-
-Globals.Name = "Globals"
-Globals.Parent = Source
-Globals.BackgroundColor3 = Color3.new(1, 1, 1)
-Globals.BackgroundTransparency = 1
-Globals.Size = UDim2.new(1, 0, 1, 0)
-Globals.ZIndex = 5
-Globals.Font = Enum.Font.Code
-Globals.Text = ""
-Globals.TextColor3 = Color3.new(0.15, 0.25, 0.55) -- Bleu nuit foncé
-Globals.TextSize = 15
-Globals.TextXAlignment = Enum.TextXAlignment.Left
-Globals.TextYAlignment = Enum.TextYAlignment.Top
-
-Keywords.Name = "Keywords"
-Keywords.Parent = Source
-Keywords.BackgroundColor3 = Color3.new(1, 1, 1)
-Keywords.BackgroundTransparency = 1
-Keywords.Size = UDim2.new(1, 0, 1, 0)
-Keywords.ZIndex = 5
-Keywords.Font = Enum.Font.Code
-Keywords.Text = ""
-Keywords.TextColor3 = Color3.new(0.2, 0.3, 0.6) -- Bleu nuit clair
-Keywords.TextSize = 15
-Keywords.TextXAlignment = Enum.TextXAlignment.Left
-Keywords.TextYAlignment = Enum.TextYAlignment.Top
-
-RemoteHighlight.Name = "RemoteHighlight"
-RemoteHighlight.Parent = Source
-RemoteHighlight.BackgroundColor3 = Color3.new(1, 1, 1)
-RemoteHighlight.BackgroundTransparency = 1
-RemoteHighlight.Size = UDim2.new(1, 0, 1, 0)
-RemoteHighlight.ZIndex = 5
-RemoteHighlight.Font = Enum.Font.Code
-RemoteHighlight.Text = ""
-RemoteHighlight.TextColor3 = Color3.new(0.15, 0.25, 0.55) -- Bleu nuit foncé
-RemoteHighlight.TextSize = 15
-RemoteHighlight.TextXAlignment = Enum.TextXAlignment.Left
-RemoteHighlight.TextYAlignment = Enum.TextYAlignment.Top
-
-Strings.Name = "Strings"
-Strings.Parent = Source
-Strings.BackgroundColor3 = Color3.new(1, 1, 1)
-Strings.BackgroundTransparency = 1
-Strings.Size = UDim2.new(1, 0, 1, 0)
-Strings.ZIndex = 5
-Strings.Font = Enum.Font.Code
-Strings.Text = ""
-Strings.TextColor3 = Color3.new(0.25, 0.35, 0.65) -- Bleu nuit clair
-Strings.TextSize = 15
-Strings.TextXAlignment = Enum.TextXAlignment.Left
-Strings.TextYAlignment = Enum.TextYAlignment.Top
-
-Tokens.Name = "Tokens"
-Tokens.Parent = Source
-Tokens.BackgroundColor3 = Color3.new(1, 1, 1)
-Tokens.BackgroundTransparency = 1
-Tokens.Size = UDim2.new(1, 0, 1, 0)
-Tokens.ZIndex = 5
-Tokens.Font = Enum.Font.Code
-Tokens.Text = ""
-Tokens.TextColor3 = Color3.new(0.2, 0.3, 0.6) -- Bleu nuit clair
-Tokens.TextSize = 15
-Tokens.TextXAlignment = Enum.TextXAlignment.Left
-Tokens.TextYAlignment = Enum.TextYAlignment.Top
-
-Numbers.Name = "Numbers"
-Numbers.Parent = Source
-Numbers.BackgroundColor3 = Color3.new(1, 1, 1)
-Numbers.BackgroundTransparency = 1
-Numbers.Size = UDim2.new(1, 0, 1, 0)
-Numbers.ZIndex = 4
-Numbers.Font = Enum.Font.Code
-Numbers.Text = ""
-Numbers.TextColor3 = Color3.new(0.3, 0.4, 0.7) -- Bleu nuit très clair
-Numbers.TextSize = 15
-Numbers.TextXAlignment = Enum.TextXAlignment.Left
-Numbers.TextYAlignment = Enum.TextYAlignment.Top
-
-Info.Name = "Info"
-Info.Parent = Source
-Info.BackgroundColor3 = Color3.new(1, 1, 1)
-Info.BackgroundTransparency = 1
-Info.Size = UDim2.new(1, 0, 1, 0)
-Info.ZIndex = 5
-Info.Font = Enum.Font.Code
-Info.Text = ""
-Info.TextColor3 = Color3.new(0.15, 0.25, 0.55) -- Bleu nuit foncé
-Info.TextSize = 15
-Info.TextXAlignment = Enum.TextXAlignment.Left
-Info.TextYAlignment = Enum.TextYAlignment.Top
-
+local Lines = Instance.new("TextLabel")
 Lines.Name = "Lines"
 Lines.Parent = ScrollingFrame
-Lines.BackgroundColor3 = Color3.new(1, 1, 1)
 Lines.BackgroundTransparency = 1
 Lines.BorderSizePixel = 0
 Lines.Size = UDim2.new(0, 40, 0, 10000)
 Lines.ZIndex = 4
 Lines.Font = Enum.Font.Code
 Lines.Text = "1\n"
-Lines.TextColor3 = Color3.new(0.4, 0.45, 0.65) -- Bleu gris clair
-Lines.TextSize = 15
-Lines.TextWrapped = true
+Lines.TextColor3 = Colors.Text
+Lines.TextSize = 16
 Lines.TextYAlignment = Enum.TextYAlignment.Top
 
+-- Élément : ColorPicker
+local ColorPicker = Instance.new("ImageLabel")
 ColorPicker.Name = "ColorPicker"
 ColorPicker.Parent = Prefabs
-ColorPicker.BackgroundColor3 = Color3.new(1, 1, 1)
 ColorPicker.BackgroundTransparency = 1
-ColorPicker.Size = UDim2.new(0, 180, 0, 110)
+ColorPicker.Size = UDim2.new(0, 200, 0, 120)
 ColorPicker.Image = "rbxassetid://2851929490"
-ColorPicker.ImageColor3 = Color3.new(0.15, 0.18, 0.22)
+ColorPicker.ImageColor3 = Colors.Secondary
 ColorPicker.ScaleType = Enum.ScaleType.Slice
 ColorPicker.SliceCenter = Rect.new(4, 4, 4, 4)
 
+local Palette = Instance.new("ImageLabel")
 Palette.Name = "Palette"
 Palette.Parent = ColorPicker
-Palette.BackgroundColor3 = Color3.new(1, 1, 1)
 Palette.BackgroundTransparency = 1
-Palette.Position = UDim2.new(0.0500000007, 0, 0.0500000007, 0)
-Palette.Size = UDim2.new(0, 100, 0, 100)
+Palette.Position = UDim2.new(0.05, 0, 0.05, 0)
+Palette.Size = UDim2.new(0, 110, 0, 110)
 Palette.Image = "rbxassetid://698052001"
 Palette.ScaleType = Enum.ScaleType.Slice
 Palette.SliceCenter = Rect.new(4, 4, 4, 4)
 
+local Indicator_3 = Instance.new("ImageLabel")
 Indicator_3.Name = "Indicator"
 Indicator_3.Parent = Palette
-Indicator_3.BackgroundColor3 = Color3.new(1, 1, 1)
 Indicator_3.BackgroundTransparency = 1
-Indicator_3.Size = UDim2.new(0, 5, 0, 5)
+Indicator_3.Size = UDim2.new(0, 6, 0, 6)
 Indicator_3.ZIndex = 2
 Indicator_3.Image = "rbxassetid://2851926732"
-Indicator_3.ImageColor3 = Color3.new(0.15, 0.25, 0.55)
+Indicator_3.ImageColor3 = Color3.fromRGB(255, 255, 255)
 Indicator_3.ScaleType = Enum.ScaleType.Slice
 Indicator_3.SliceCenter = Rect.new(12, 12, 12, 12)
 
+local Sample = Instance.new("ImageLabel")
 Sample.Name = "Sample"
 Sample.Parent = ColorPicker
-Sample.BackgroundColor3 = Color3.new(1, 1, 1)
 Sample.BackgroundTransparency = 1
-Sample.Position = UDim2.new(0.800000012, 0, 0.0500000007, 0)
-Sample.Size = UDim2.new(0, 25, 0, 25)
+Sample.Position = UDim2.new(0.8, 0, 0.05, 0)
+Sample.Size = UDim2.new(0, 30, 0, 30)
 Sample.Image = "rbxassetid://2851929490"
 Sample.ScaleType = Enum.ScaleType.Slice
 Sample.SliceCenter = Rect.new(4, 4, 4, 4)
 
+local Saturation = Instance.new("ImageLabel")
 Saturation.Name = "Saturation"
 Saturation.Parent = ColorPicker
-Saturation.BackgroundColor3 = Color3.new(1, 1, 1)
-Saturation.Position = UDim2.new(0.649999976, 0, 0.0500000007, 0)
-Saturation.Size = UDim2.new(0, 15, 0, 100)
+Saturation.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Saturation.Position = UDim2.new(0.65, 0, 0.05, 0)
+Saturation.Size = UDim2.new(0, 20, 0, 110)
 Saturation.Image = "rbxassetid://3641079629"
 
+local Indicator_4 = Instance.new("Frame")
 Indicator_4.Name = "Indicator"
 Indicator_4.Parent = Saturation
-Indicator_4.BackgroundColor3 = Color3.new(0.15, 0.25, 0.55)
+Indicator_4.BackgroundColor3 = Colors.Accent
 Indicator_4.BorderSizePixel = 0
-Indicator_4.Size = UDim2.new(0, 20, 0, 2)
+Indicator_4.Size = UDim2.new(1, 0, 0, 3)
 Indicator_4.ZIndex = 2
 
-Switch.Name = "Switch"
-Switch.Parent = Prefabs
-Switch.BackgroundColor3 = Color3.new(1, 1, 1)
-Switch.BackgroundTransparency = 1
-Switch.BorderSizePixel = 0
-Switch.Position = UDim2.new(0.229411766, 0, 0.20714286, 0)
-Switch.Size = UDim2.new(0, 20, 0, 20)
-Switch.ZIndex = 2
-Switch.Font = Enum.Font.SourceSans
-Switch.Text = ""
-Switch.TextColor3 = Color3.new(0.2, 0.3, 0.6)
-Switch.TextSize = 18
-
-TextButton_Roundify_4px_4.Name = "TextButton_Roundify_4px"
-TextButton_Roundify_4px_4.Parent = Switch
-TextButton_Roundify_4px_4.BackgroundColor3 = Color3.new(1, 1, 1)
-TextButton_Roundify_4px_4.BackgroundTransparency = 1
-TextButton_Roundify_4px_4.Size = UDim2.new(1, 0, 1, 0)
-TextButton_Roundify_4px_4.Image = "rbxassetid://2851929490"
-TextButton_Roundify_4px_4.ImageColor3 = Color3.new(0.15, 0.25, 0.55)
-TextButton_Roundify_4px_4.ImageTransparency = 0.5
-TextButton_Roundify_4px_4.ScaleType = Enum.ScaleType.Slice
-TextButton_Roundify_4px_4.SliceCenter = Rect.new(4, 4, 4, 4)
-
-Title_3.Name = "Title"
-Title_3.Parent = Switch
-Title_3.BackgroundColor3 = Color3.new(1, 1, 1)
-Title_3.BackgroundTransparency = 1
-Title_3.Position = UDim2.new(1.20000005, 0, 0, 0)
-Title_3.Size = UDim2.new(0, 20, 0, 20)
-Title_3.Font = Enum.Font.GothamSemibold
-Title_3.Text = "Switch"
-Title_3.TextColor3 = Color3.new(0.15, 0.25, 0.55) -- Bleu nuit foncé
-Title_3.TextSize = 14
-Title_3.TextXAlignment = Enum.TextXAlignment.Left
-
-Button_2.Name = "Button"
-Button_2.Parent = Prefabs
-Button_2.BackgroundColor3 = Color3.new(0.15, 0.18, 0.22)
-Button_2.BackgroundTransparency = 1
-Button_2.BorderSizePixel = 0
-Button_2.Size = UDim2.new(0, 91, 0, 20)
-Button_2.ZIndex = 2
-Button_2.Font = Enum.Font.GothamSemibold
-Button_2.TextColor3 = Color3.new(0.2, 0.3, 0.6) -- Bleu nuit clair
-Button_2.TextSize = 14
-
-TextButton_Roundify_4px_5.Name = "TextButton_Roundify_4px"
-TextButton_Roundify_4px_5.Parent = Button_2
-TextButton_Roundify_4px_5.BackgroundColor3 = Color3.new(1, 1, 1)
-TextButton_Roundify_4px_5.BackgroundTransparency = 1
-TextButton_Roundify_4px_5.Size = UDim2.new(1, 0, 1, 0)
-TextButton_Roundify_4px_5.Image = "rbxassetid://2851929490"
-TextButton_Roundify_4px_5.ImageColor3 = Color3.new(0.15, 0.25, 0.55)
-TextButton_Roundify_4px_5.ScaleType = Enum.ScaleType.Slice
-TextButton_Roundify_4px_5.SliceCenter = Rect.new(4, 4, 4, 4)
-
-DropdownButton.Name = "DropdownButton"
-DropdownButton.Parent = Prefabs
-DropdownButton.BackgroundColor3 = Color3.new(0.25, 0.27, 0.3)
-DropdownButton.BorderSizePixel = 0
-DropdownButton.Size = UDim2.new(1, 0, 0, 20)
-DropdownButton.ZIndex = 3
-DropdownButton.Font = Enum.Font.GothamBold
-DropdownButton.Text = "      Button"
-DropdownButton.TextColor3 = Color3.new(0.2, 0.3, 0.6) -- Bleu nuit clair
-DropdownButton.TextSize = 14
-DropdownButton.TextXAlignment = Enum.TextXAlignment.Left
-
+-- Élément : Keybind
+local Keybind = Instance.new("ImageLabel")
 Keybind.Name = "Keybind"
 Keybind.Parent = Prefabs
-Keybind.BackgroundColor3 = Color3.new(1, 1, 1)
 Keybind.BackgroundTransparency = 1
-Keybind.Size = UDim2.new(0, 200, 0, 20)
+Keybind.Size = UDim2.new(1, -10, 0, 35)
 Keybind.Image = "rbxassetid://2851929490"
-Keybind.ImageColor3 = Color3.new(0.15, 0.18, 0.22)
+Keybind.ImageColor3 = Colors.Secondary
 Keybind.ScaleType = Enum.ScaleType.Slice
 Keybind.SliceCenter = Rect.new(4, 4, 4, 4)
 
-Title_4.Name = "Title"
-Title_4.Parent = Keybind
-Title_4.BackgroundColor3 = Color3.new(1, 1, 1)
-Title_4.BackgroundTransparency = 1
-Title_4.Size = UDim2.new(0, 0, 1, 0)
-Title_4.Font = Enum.Font.GothamBold
-Title_4.Text = "Keybind"
-Title_4.TextColor3 = Color3.new(0.15, 0.25, 0.55) -- Bleu nuit foncé
-Title_4.TextSize = 14
-Title_4.TextXAlignment = Enum.TextXAlignment.Left
+local KeybindTitle = Instance.new("TextLabel")
+KeybindTitle.Name = "Title"
+KeybindTitle.Parent = Keybind
+KeybindTitle.BackgroundTransparency = 1
+KeybindTitle.Size = UDim2.new(0.5, 0, 1, 0)
+KeybindTitle.Font = Enum.Font.SourceSansPro
+KeybindTitle.Text = "Keybind"
+KeybindTitle.TextColor3 = Colors.Text
+KeybindTitle.TextSize = 16
+KeybindTitle.TextXAlignment = Enum.TextXAlignment.Left
 
+local Input = Instance.new("TextButton")
 Input.Name = "Input"
 Input.Parent = Keybind
-Input.BackgroundColor3 = Color3.new(1, 1, 1)
 Input.BackgroundTransparency = 1
-Input.BorderSizePixel = 0
-Input.Position = UDim2.new(1, -85, 0, 2)
-Input.Size = UDim2.new(0, 80, 1, -4)
+Input.Position = UDim2.new(1, -90, 0, 2)
+Input.Size = UDim2.new(0, 85, 1, -4)
 Input.ZIndex = 2
-Input.Font = Enum.Font.GothamSemibold
+Input.Font = Enum.Font.SourceSansPro
 Input.Text = "RShift"
-Input.TextColor3 = Color3.new(0.2, 0.3, 0.6) -- Bleu nuit clair
-Input.TextSize = 12
-Input.TextWrapped = true
+Input.TextColor3 = Colors.Text
+Input.TextSize = 14
 
-Input_Roundify_4px.Name = "Input_Roundify_4px"
-Input_Roundify_4px.Parent = Input
-Input_Roundify_4px.BackgroundColor3 = Color3.new(1, 1, 1)
-Input_Roundify_4px.BackgroundTransparency = 1
-Input_Roundify_4px.Size = UDim2.new(1, 0, 1, 0)
-Input_Roundify_4px.Image = "rbxassetid://2851929490"
-Input_Roundify_4px.ImageColor3 = Color3.new(0.25, 0.27, 0.3)
-Input_Roundify_4px.ScaleType = Enum.ScaleType.Slice
-Input_Roundify_4px.SliceCenter = Rect.new(4, 4, 4, 4)
-
-Windows.Name = "Windows"
-Windows.Parent = imgui
-Windows.BackgroundColor3 = Color3.new(1, 1, 1)
-Windows.BackgroundTransparency = 1
-Windows.Position = UDim2.new(0, 20, 0, 20)
-Windows.Size = UDim2.new(1, 20, 1, -20)
+local InputRoundify = Instance.new("ImageLabel")
+InputRoundify.Name = "Input_Roundify"
+InputRoundify.Parent = Input
+InputRoundify.BackgroundTransparency = 1
+InputRoundify.Size = UDim2.new(1, 0, 1, 0)
+InputRoundify.Image = "rbxassetid://2851929490"
+InputRoundify.ImageColor3 = Colors.Accent
+InputRoundify.ScaleType = Enum.ScaleType.Slice
+InputRoundify.SliceCenter = Rect.new(4, 4, 4, 4)
 
 --[[ Script ]]--
 script.Parent = imgui
